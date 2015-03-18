@@ -1,4 +1,4 @@
-# Dice roller: a virtual dice rolling app.
+# Dice roller: a virtual dice rolling app
 This ionic has a single button that, when pressed, displays a nubmer between one and twenty in a text box.
 
 ## Exercises
