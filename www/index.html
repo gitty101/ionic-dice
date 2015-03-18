@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="cordova.js"></script>
+
+    <script type="text/javascript">
+      angular.module('dice', ['ionic'])
+
+      .controller('diceCtrl', function($scope) {
+        
+        function roll() {
+          return Math.floor(Math.random() * 20 + 1);
+        }
+        
+        $scope.data = { diceroll: roll() };
+        
+        $scope.rollDice = function () {
+          $scope.data.diceroll = roll();
+        };
+
+      });
+
+    </script>
+
+  </head>
+
+  <body ng-app="dice" ng-controller="diceCtrl">
+    <ion-pane>
+
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Dice roller</h1>
+      </ion-header-bar>
+
+      <ion-content>
+        <div class="list list-inset">
+
+          <label class="item item-input">
+            <input type="number" ng-model="data.diceroll">
+          </label>
+
+          <button class="button button-block button-royal item-icon-left item-icon-right" ng-click="rollDice()">
+            <i class="icon ion-help"></i>
+            Roll the dice
+            <i class="icon ion-help "></i>
+          </button>
+
+        </div>
+
+      </ion-content>
+
+</ion-pane>
+
+
+  </body>
+
+</html>
